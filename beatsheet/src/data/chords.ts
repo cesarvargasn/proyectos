@@ -1,0 +1,208 @@
+import type { ChordQuality } from '../types'
+
+/**
+ * ------------------------------------------------------------------
+ * CATÁLOGO DE ACORDES — fuente de verdad de intervalos
+ * ------------------------------------------------------------------
+ * `intervals` = semitonos desde la fundamental, incluyendo el 0.
+ * Para agregar una calidad nueva: agrega un objeto aquí. Nada más.
+ */
+export const CHORD_QUALITIES: ChordQuality[] = [
+  {
+    id: 'major',
+    symbol: '',
+    name: 'Mayor',
+    intervals: [0, 4, 7],
+    flavor: 'estable, luminoso. El punto de partida.',
+    family: 'triada',
+    base: 'major',
+  },
+  {
+    id: 'minor',
+    symbol: 'm',
+    name: 'Menor',
+    intervals: [0, 3, 7],
+    flavor: 'triste sin drama. El 90% del trap latino vive aquí.',
+    family: 'triada',
+    base: 'minor',
+  },
+  {
+    id: 'dim',
+    symbol: 'dim',
+    name: 'Disminuido',
+    intervals: [0, 3, 6],
+    flavor: 'inestable, de paso. Nunca lo dejes sonando solo.',
+    family: 'triada',
+    base: 'minor',
+  },
+  {
+    id: 'aug',
+    symbol: 'aug',
+    name: 'Aumentado',
+    intervals: [0, 4, 8],
+    flavor: 'suspenso de película. Úsalo un compás, no cuatro.',
+    family: 'triada',
+    base: 'major',
+  },
+  {
+    id: 'maj7',
+    symbol: 'maj7',
+    name: 'Séptima mayor',
+    intervals: [0, 4, 7, 11],
+    flavor: 'soñador, lo-fi. Mayor pero con nostalgia.',
+    family: 'septima',
+    base: 'major',
+  },
+  {
+    id: 'dom7',
+    symbol: '7',
+    name: 'Séptima de dominante',
+    intervals: [0, 4, 7, 10],
+    flavor: 'pica, pide resolver. El motor del blues y del V→i.',
+    family: 'septima',
+    base: 'major',
+  },
+  {
+    id: 'm7',
+    symbol: 'm7',
+    name: 'Menor séptima',
+    intervals: [0, 3, 7, 10],
+    flavor: 'menor suavizado, R&B. Menos llorón que el menor pelado.',
+    family: 'septima',
+    base: 'minor',
+  },
+  {
+    id: 'm7b5',
+    symbol: 'm7b5',
+    name: 'Semidisminuido',
+    intervals: [0, 3, 6, 10],
+    flavor: 'el ii° del menor. Tensión elegante antes del V.',
+    family: 'septima',
+    base: 'minor',
+  },
+  {
+    id: 'dim7',
+    symbol: 'dim7',
+    name: 'Séptima disminuida',
+    intervals: [0, 3, 6, 9],
+    flavor: 'puente entre dos acordes. Todo tensión, cero reposo.',
+    family: 'septima',
+    base: 'minor',
+  },
+  {
+    id: 'mMaj7',
+    symbol: 'm(maj7)',
+    name: 'Menor con séptima mayor',
+    intervals: [0, 3, 7, 11],
+    flavor: 'siniestro, James Bond. Un semitono que lo cambia todo.',
+    family: 'septima',
+    base: 'minor',
+  },
+  {
+    id: '6',
+    symbol: '6',
+    name: 'Sexta mayor',
+    intervals: [0, 4, 7, 9],
+    flavor: 'vintage, alegre sin ser bobo. Cierra frases sin sonar a final.',
+    family: 'color',
+    base: 'major',
+  },
+  {
+    id: 'm6',
+    symbol: 'm6',
+    name: 'Sexta menor',
+    intervals: [0, 3, 7, 9],
+    flavor: 'menor con luz. Bossa y neo-soul.',
+    family: 'color',
+    base: 'minor',
+  },
+  {
+    id: 'sus2',
+    symbol: 'sus2',
+    name: 'Suspendido de segunda',
+    intervals: [0, 2, 7],
+    flavor: 'abierto, sin género: no es ni mayor ni menor.',
+    family: 'sus',
+    base: 'both',
+  },
+  {
+    id: 'sus4',
+    symbol: 'sus4',
+    name: 'Suspendido de cuarta',
+    intervals: [0, 5, 7],
+    flavor: 'tensión que pide resolver. Suéltalo a la tercera y sonríe.',
+    family: 'sus',
+    base: 'both',
+  },
+  {
+    id: 'add9',
+    symbol: 'add9',
+    name: 'Con novena añadida',
+    intervals: [0, 4, 7, 14],
+    flavor: 'brillo sin jazz: color sin meter séptima.',
+    family: 'novena',
+    base: 'major',
+  },
+  {
+    id: 'madd9',
+    symbol: 'm(add9)',
+    name: 'Menor con novena añadida',
+    intervals: [0, 3, 7, 14],
+    flavor: 'melancólico y moderno. Suena caro por nada.',
+    family: 'novena',
+    base: 'minor',
+  },
+  {
+    id: 'maj9',
+    symbol: 'maj9',
+    name: 'Novena mayor',
+    intervals: [0, 4, 7, 11, 14],
+    flavor: 'lo-fi total. maj7 con aún más aire.',
+    family: 'novena',
+    base: 'major',
+  },
+  {
+    id: 'm9',
+    symbol: 'm9',
+    name: 'Novena menor',
+    intervals: [0, 3, 7, 10, 14],
+    flavor: 'R&B, tristeza elegante. El acorde de Danny Ocean.',
+    family: 'novena',
+    base: 'minor',
+  },
+  {
+    id: 'dom9',
+    symbol: '9',
+    name: 'Novena de dominante',
+    intervals: [0, 4, 7, 10, 14],
+    flavor: 'funk. Tensión que además baila.',
+    family: 'novena',
+    base: 'major',
+  },
+]
+
+export const CHORD_BY_ID: Record<string, ChordQuality> = Object.fromEntries(
+  CHORD_QUALITIES.map((c) => [c.id, c]),
+)
+
+/**
+ * Etiquetas de sabor de cada toggle del jazzificador.
+ * Agregar un toggle nuevo = agregar una entrada aquí + su lógica en chordSpec.ts.
+ */
+export const TOGGLE_FLAVORS: Record<string, string> = {
+  base_major: 'mayor: 0-4-7. Estable, sin drama.',
+  base_minor: 'menor: 0-3-7. La base del urbano.',
+  seventh_none: 'sin séptima: triada seca, suena a demo o a rock.',
+  seventh_maj7: 'maj7 (+11): soñador, lo-fi.',
+  seventh_b7: 'b7 (+10): sobre mayor pica (dom7), sobre menor relaja (m7).',
+  ninth_none: 'sin novena.',
+  ninth_add9: 'add9 (+14 sin séptima): brillo limpio.',
+  ninth_9: '9 (séptima +14): m9 = R&B; maj9 = lo-fi; 9 = funk.',
+  sixth: '6 (+9): vintage. En menor (m6) huele a bossa.',
+  sus2: 'sus2 (0-2-7): abierto, ni mayor ni menor.',
+  sus4: 'sus4 (0-5-7): tensión que pide resolver.',
+  shell: 'shell (1-3-7): solo lo esencial. Deja sitio al 808 y a la voz.',
+  inv0: 'fundamental: la root abajo. Sonido de bloque.',
+  inv1: '1ª inversión: la tercera abajo. Menos peso, más movimiento.',
+  inv2: '2ª inversión: la quinta abajo. Flotante, buena para enlazar.',
+}

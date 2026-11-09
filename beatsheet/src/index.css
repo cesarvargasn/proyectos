@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+  body {
+    @apply bg-bg text-ink font-sans antialiased;
+  }
+  ::selection {
+    background: #f0a03055;
+  }
+}
+
+@layer components {
+  /* Grid de piano roll: líneas cada 1/16 con acento cada negra */
+  .fl-grid {
+    background-image:
+      linear-gradient(to right, #3a3a4088 1px, transparent 1px),
+      linear-gradient(to right, #3a3a4033 1px, transparent 1px);
+    background-size:
+      var(--beat, 64px) 100%,
+      var(--step, 16px) 100%;
+  }
+
+  .panel {
+    @apply bg-panel border border-grid rounded-lg;
+  }
+
+  .btn {
+    @apply px-3 py-1.5 rounded-md border border-grid bg-panel text-ink text-sm
+           transition-colors hover:border-lime/60 hover:text-lime
+           focus:outline-none focus-visible:ring-1 focus-visible:ring-lime;
+  }
+
+  .btn-active {
+    @apply bg-lime/15 border-lime text-lime;
+  }
+
+  .btn-orange {
+    @apply bg-orange/15 border-orange text-orange;
+  }
+
+  .chip {
+    @apply font-mono text-xs px-2 py-0.5 rounded border border-grid text-muted;
+  }
+
+  .label {
+    @apply text-xs uppercase tracking-wider text-muted;
+  }
+}
+
+/* Scrollbars discretas, estilo DAW */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #3a3a40 transparent;
+}
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+*::-webkit-scrollbar-thumb {
+  background: #3a3a40;
+  border-radius: 6px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}

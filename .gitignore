@@ -6,3 +6,9 @@ dist
 __pycache__/
 *.pyc
 .env
+gastos/Visualizador/*.json
+gastos/Visualizador/*.db
+gastos/Visualizador/*.csv
+gastos/Visualizador/backups/
+gastos/Capturador/local.properties
+*.apk

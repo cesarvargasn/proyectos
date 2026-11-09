@@ -10,6 +10,7 @@ La ficha de cada uno vive en [cesarvargasn.com/proyectos](https://cesarvargasn.c
 | [`whatsapp-analisis/`](whatsapp-analisis) | Métricas de un chat exportado de WhatsApp: participación, quién inicia, palabras | Python, pandas |
 | [`ocr-app/`](ocr-app) | App de escritorio que saca texto de imágenes y PDF a .txt o .docx | Python, Tesseract |
 | [`beatsheet/`](beatsheet) | Chuleta interactiva de producción musical para FL Studio | React, TypeScript |
+| [`gastos/`](gastos) | App Android que registra gastos leyendo los SMS del banco, más un visualizador local | Kotlin, Python, Supabase |
 | [`otros/`](otros) | Experimentos chicos: visor de bolsa y un scraper con interfaz | Python |
 
 Ningún proyecto incluye datos originales ni personales.
